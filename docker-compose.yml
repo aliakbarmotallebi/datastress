@@ -9,6 +9,22 @@ services:
       - INFLUXDB_ADMIN_ENABLED=true
     volumes:
       - influxdb_data:/var/lib/influxdb
+    networks:
+      - app_net
+      - web_net
+    labels:
+      - traefik.enable=true
+      - traefik.docker.network=web_net
+      - traefik.http.routers.influxdb.entrypoints=http
+      - traefik.http.routers.influxdb.rule=Host(`${INFLUX_SUBDOMAIN}.${DOMAIN_ADDRESS}`)
+      - traefik.http.routers.influxdb.middlewares=https-redirect
+      - traefik.http.middlewares.https-redirect.redirectscheme.scheme=https
+      - traefik.http.routers.influxdb-secure.entrypoints=https
+      - traefik.http.routers.influxdb-secure.rule=Host(`${INFLUX_SUBDOMAIN}.${DOMAIN_ADDRESS}`)
+      - traefik.http.routers.influxdb-secure.tls=true
+      - traefik.http.routers.influxdb-secure.tls.options=default
+      - traefik.http.routers.influxdb-secure.tls.certresolver=mycert
+      - traefik.http.services.influxdb.loadbalancer.server.port=8086
 
   app:
     image: node:20
@@ -19,6 +35,8 @@ services:
     command: sh -c "npm install && npm run dev"
     depends_on:
       - influxdb
+    networks:
+      - app_net
 
   k6:
     image: grafana/k6:latest
@@ -29,7 +47,16 @@ services:
     depends_on:
       - influxdb
     entrypoint: ["k6"]
+    networks:
+      - app_net
 
 volumes:
   influxdb_data:
 
+networks:
+  app_net:
+    external: false
+    name: app_net
+  web_net:
+    external: true
+    name: web_net
