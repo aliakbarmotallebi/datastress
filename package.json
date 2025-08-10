@@ -1,0 +1,28 @@
+{
+  "name": "boilerno",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "tsx watch tests/main.ts",
+    "start": "tsx tests/main.ts",
+    "prebuild": "rimraf dist/",
+    "build": "tsc",
+    "preview": "node dist/main.js",
+    "test:idea": "bin\\k6.exe run tests/idea/test.ts -o xk6-influxdb"
+  },
+  "devDependencies": {
+    "@types/k6": "^0.57.1",
+    "@types/node": "^20.17.16",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^8.10.0",
+    "eslint-plugin-prettier": "^5.2.3",
+    "prettier": "^3.4.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3"
+  },
+  "dependencies": {
+    "csv": "^6.3.11",
+    "rimraf": "^5.0.10"
+  }
+}
