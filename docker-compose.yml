@@ -1,0 +1,37 @@
+version: "3.8"
+
+services:
+  influxdb:
+    image: influxdb:1.8
+    container_name: influxdb
+    ports:
+      - "8086:8086"
+    environment:
+      - INFLUXDB_DB=k6
+      - INFLUXDB_ADMIN_ENABLED=true
+    volumes:
+      - influxdb_data:/var/lib/influxdb
+
+  app:
+    image: node:20
+    container_name: typescript-app
+    working_dir: /usr/src/app
+    volumes:
+      - .:/usr/src/app
+    command: sh -c "npm install && npm run dev"
+    depends_on:
+      - influxdb
+
+  k6:
+    image: grafana/k6:latest
+    container_name: k6-runner
+    working_dir: /scripts
+    volumes:
+      - ./tests:/scripts
+    depends_on:
+      - influxdb
+    entrypoint: ["k6"]
+
+volumes:
+  influxdb_data:
+
