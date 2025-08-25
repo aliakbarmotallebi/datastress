@@ -1,30 +1,23 @@
+version: "3.8"
+
 services:
   influxdb:
-    image: influxdb:1.8
+    image: influxdb:2
     container_name: influxdb
     ports:
       - "8086:8086"
-    environment:
-      - INFLUXDB_DB=k6
-      - INFLUXDB_ADMIN_ENABLED=true
     volumes:
       - influxdb_data:/var/lib/influxdb
+    environment:
+      - DOCKER_INFLUXDB_INIT_MODE=setup
+      - DOCKER_INFLUXDB_INIT_USERNAME=my-user
+      - DOCKER_INFLUXDB_INIT_PASSWORD=my-password
+      - DOCKER_INFLUXDB_INIT_ORG=my-org
+      - DOCKER_INFLUXDB_INIT_BUCKET=k6
+      - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=my-super-secret-auth-token
     networks:
       - app_net
       - web_net
-    labels:
-      - traefik.enable=true
-      - traefik.docker.network=web_net
-      - traefik.http.routers.influxdb.entrypoints=http
-      - traefik.http.routers.influxdb.rule=Host(`${INFLUX_SUBDOMAIN}.${DOMAIN_ADDRESS}`)
-      - traefik.http.routers.influxdb.middlewares=https-redirect
-      - traefik.http.middlewares.https-redirect.redirectscheme.scheme=https
-      - traefik.http.routers.influxdb-secure.entrypoints=https
-      - traefik.http.routers.influxdb-secure.rule=Host(`${INFLUX_SUBDOMAIN}.${DOMAIN_ADDRESS}`)
-      - traefik.http.routers.influxdb-secure.tls=true
-      - traefik.http.routers.influxdb-secure.tls.options=default
-      - traefik.http.routers.influxdb-secure.tls.certresolver=mycert
-      - traefik.http.services.influxdb.loadbalancer.server.port=8086
 
   app:
     image: node:20
@@ -39,14 +32,15 @@ services:
       - app_net
 
   k6:
-    image: grafana/k6:latest
+    build:
+      context: .
+      dockerfile: Dockerfile.k6
     container_name: k6-runner
-    working_dir: /scripts
+    working_dir: /tests
     volumes:
-      - ./tests:/scripts
+      - ./tests:/tests
     depends_on:
       - influxdb
-    entrypoint: ["k6"]
     networks:
       - app_net
 
