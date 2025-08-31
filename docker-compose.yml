@@ -1,7 +1,7 @@
 
 services:
   influxdb:
-    image: influxdb:2
+    image: influxdb:2-alpine
     container_name: influxdb
     ports:
       - "8086:8086"
@@ -44,24 +44,26 @@ services:
       - app_net
 
   k6:
-    image: grafana/k6:latest
+    build: .
     container_name: k6-runner
-    working_dir: /tests
-    volumes:
-      - ./tests:/tests
-    depends_on:
-      - influxdb
-    entrypoint: ["k6", "run"]
     networks:
       - app_net
+    environment:
+      - K6_OUT=xk6-influxdb=http://influxdb:8086
+      - K6_INFLUXDB_ORGANIZATION=main-org
+      - K6_INFLUXDB_BUCKET=k6
+      - K6_INFLUXDB_INSECURE=true
+      - K6_INFLUXDB_TOKEN=SuperSecretToken456!
+    volumes:
+      - ./tests:/home/k6user/tests
+    working_dir: /home/k6user
+    command: run tests/idea/test.ts -o xk6-influxdb
 
 volumes:
   influxdb_data:
 
 networks:
   app_net:
-    external: false
-    name: app_net
+    driver: bridge
   web_net:
     external: true
-    name: web_net

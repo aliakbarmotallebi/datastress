@@ -1,5 +1,5 @@
-K6_CMD=docker compose run k6 run --out influxdb=http://influxdb:8086/k6
 
-k6:
-	$(K6_CMD) $(FILE)
+K6_CMD = docker compose run --rm k6 run --out "xk6-influxdb=http://influxdb:8086" --env INFLUXDB_TOKEN=SuperSecretToken456!
 
+test-idea:
+	$(K6_CMD) tests/idea/test.ts
