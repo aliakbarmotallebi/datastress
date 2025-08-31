@@ -1,5 +1,5 @@
-import { CreateAtObjType } from "/tests/idea/types/create-at-obj.type.ts";
-import { UserType } from "/tests/idea/types/user.type.ts";
+import { CreateAtObjType } from "tests/idea/types/create-at-obj.type.ts";
+import { UserType } from "tests/idea/types/user.type.ts";
 
 export type CommentType = {
   id: string;

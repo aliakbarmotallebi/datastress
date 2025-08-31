@@ -9,7 +9,7 @@
     "preview": "node dist/main.js",
     "test:idea": "bin\\k6.exe run tests/idea/test.ts -o xk6-influxdb",
     "tests": "k6 run tests/idea/test.ts -o xk6-influxdb",
-    "test:build": "npm run build && k6 run dist/tests/idea/test.js --out xk6-influxdb"
+    "test:build": "npm run build && k6 run disttests/idea/test.js --out xk6-influxdb"
   },
   "devDependencies": {
     "@types/k6": "^0.57.1",
