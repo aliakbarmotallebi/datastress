@@ -1,11 +1,11 @@
 import { sleep } from "k6";
 
-import { addIdeaRequest } from "/tests/idea/requests/add-idea.request.ts";
-import { editIdeaRequest } from "/tests/idea/requests/edit-idea.request.ts";
-import { getCategoriesRequest } from "/tests/idea/requests/get-categories.request.ts";
-import { getIdeasRequest } from "/tests/idea/requests/get-ideas.request.ts";
-import { getMyIdeaRequest } from "/tests/idea/requests/get-my-idea.request.ts";
-import { getMyIdeasRequest } from "/tests/idea/requests/get-my-ideas.request.ts";
+import { addIdeaRequest } from "./requests/add-idea.request.ts";
+import { editIdeaRequest } from "./requests/edit-idea.request.ts";
+import { getCategoriesRequest } from "./requests/get-categories.request.ts";
+import { getIdeasRequest } from "./requests/get-ideas.request.ts";
+import { getMyIdeaRequest } from "./requests/get-my-idea.request.ts";
+import { getMyIdeasRequest } from "./requests/get-my-ideas.request.ts";
 
 export function addAndEditIdeaScenario(): void {
   getIdeasRequest();
