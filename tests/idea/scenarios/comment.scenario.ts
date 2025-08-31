@@ -1,10 +1,10 @@
 import { sleep } from "k6";
 
-import { addCommentRequest } from "tests/idea/requests/add-comment.request.ts";
-import { getCommentsRequest } from "tests/idea/requests/get-comments.request.ts";
-import { removeCommentRequest } from "tests/idea/requests/remove-comment.request.ts";
-import { visitAndScrollListPageRequest } from "tests/idea/requests/visit-and-scroll-list-page.request.ts";
-import { visitDetailPageRequest } from "tests/idea/requests/visit-detail-page.request.ts";
+import { addCommentRequest } from "@tests/idea/requests/add-comment.request.ts";
+import { getCommentsRequest } from "@tests/idea/requests/get-comments.request.ts";
+import { removeCommentRequest } from "@tests/idea/requests/remove-comment.request.ts";
+import { visitAndScrollListPageRequest } from "@tests/idea/requests/visit-and-scroll-list-page.request.ts";
+import { visitDetailPageRequest } from "@tests/idea/requests/visit-detail-page.request.ts";
 
 export function commentScenario(): void {
   const { randomId } = visitAndScrollListPageRequest();

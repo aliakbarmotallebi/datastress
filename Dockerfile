@@ -5,10 +5,9 @@ RUN go install go.k6.io/xk6/cmd/xk6@latest
 RUN xk6 build --with github.com/grafana/xk6-output-influxdb@latest --output /tmp/k6
 
 FROM alpine:3.21
-RUN apk add --no-cache ca-certificates && \
-    adduser -D -u 12345 -g 12345 k6user
-
-RUN mkdir -p /home/k6user/tests && ln -s /home/k6user/tests /tests
+RUN apk add --no-cache ca-certificates
+RUN adduser -D -u 12345 -g 12345 k6user
+RUN mkdir -p /home/k6user/tests && ln -s /home/k6user/tests /tests && chown -R k6user:k6user /home/k6user/tests
 
 COPY --from=builder /tmp/k6 /usr/bin/k6
 

@@ -1,5 +1,5 @@
-import { q } from "/src/utils/request.utils.ts";
-import { richRequestWithToken } from "/src/utils/scenario.utils.ts";
+import { q } from "/@src/utils/request.utils.ts";
+import { richRequestWithToken } from "/@src/utils/scenario.utils.ts";
 
 type Params = {
   id: number;

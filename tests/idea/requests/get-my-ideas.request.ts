@@ -1,6 +1,6 @@
-import { richRequest } from "/src/utils/scenario.utils.ts";
+import { richRequest } from "/@src/utils/scenario.utils.ts";
 
-import { IdeaType } from "tests/idea/types/idea.type.ts";
+import { IdeaType } from "@tests/idea/types/idea.type.ts";
 
 export function getMyIdeasRequest(): void {
   richRequest<{ data: IdeaType[] }>(

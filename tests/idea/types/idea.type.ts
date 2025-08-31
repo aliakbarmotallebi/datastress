@@ -1,4 +1,4 @@
-import { CategoryType } from "tests/idea/types/category.type.ts";
+import { CategoryType } from "@tests/idea/types/category.type.ts";
 
 export type IdeaType = {
   id: number;

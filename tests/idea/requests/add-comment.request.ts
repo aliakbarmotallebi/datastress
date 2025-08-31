@@ -1,6 +1,6 @@
-import { richRequestWithToken } from "/src/utils/scenario.utils.ts";
+import { richRequestWithToken } from "/@src/utils/scenario.utils.ts";
 
-import { CommentType } from "tests/idea/types/comment.type.ts";
+import { CommentType } from "@tests/idea/types/comment.type.ts";
 
 type Params = {
   node_id: number;

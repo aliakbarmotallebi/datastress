@@ -1,10 +1,10 @@
 import { Options } from "k6/options";
 
-import { visitListPageScenario } from "tests/idea/scenarios/visit-list-page.scenario.ts";
-import { visitDetailPageScenario } from "tests/idea/scenarios/visit-detail-page.scenario.ts";
-import { exploreDetailPageScenario } from "tests/idea/scenarios/explore-detail-page.scenario.ts";
-import { commentScenario } from "tests/idea/scenarios/comment.scenario.ts";
-import { addAndEditIdeaScenario } from "tests/idea/scenarios/add-and-edit-idea.scenario.ts";
+import { visitListPageScenario } from "@tests/idea/scenarios/visit-list-page.scenario.ts";
+import { visitDetailPageScenario } from "@tests/idea/scenarios/visit-detail-page.scenario.ts";
+import { exploreDetailPageScenario } from "@tests/idea/scenarios/explore-detail-page.scenario.ts";
+import { commentScenario } from "@tests/idea/scenarios/comment.scenario.ts";
+import { addAndEditIdeaScenario } from "@tests/idea/scenarios/add-and-edit-idea.scenario.ts";
 
 export const options: Options = {
   // vus: 10,
