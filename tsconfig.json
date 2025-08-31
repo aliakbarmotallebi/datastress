@@ -1,23 +1,20 @@
 {
   "compilerOptions": {
-    "target": "es2020",
-    "lib": ["es2020", "dom"],
-    "module": "esnext",
-    "moduleResolution": "node",
-    "outDir": "dist",
-    "rootDir": ".",
-    "strict": true,
+    "target": "ES2022",
+    "lib": ["ES2022"],
+    "module": "ESNext",
+    "rootDir": "./",
+    "resolveJsonModule": true,
+    "outDir": "./dist/",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitAny": true,
     "skipLibCheck": true,
-    "resolveJsonModule": true,
-    "baseUrl": ".",
+    "allowImportingTsExtensions": true,
     "paths": {
       "/src/*": ["./src/*"],
       "/tests/*": ["./tests/*"]
-    },
-    "types": ["k6", "node"]
-  },
-  "include": ["tests/**/*.ts", "src/**/*.ts"],
-  "exclude": ["node_modules", "dist", "**/*.js"]
+    }
+  }
 }
