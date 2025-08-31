@@ -11,10 +11,6 @@
     "strict": true,
     "noImplicitAny": true,
     "skipLibCheck": true,
-    "allowImportingTsExtensions": true,
-    "paths": {
-      "/src/*": ["/src/*"],
-      "/tests/*": ["/tests/*"]
-    }
+    "allowImportingTsExtensions": true
   }
 }
