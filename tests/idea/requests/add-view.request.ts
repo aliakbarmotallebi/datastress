@@ -1,4 +1,4 @@
-import { richRequestWithToken } from "./scenario.utils.ts";
+import { richRequestWithToken } from "@src/utils/scenario.utils.ts";
 
 type Params = {
   id: number;

@@ -1,6 +1,6 @@
-import { richRequestWithToken } from "./scenario.utils.ts";
+import { richRequestWithToken } from "@src/utils/scenario.utils.ts";
 
-import { FavoriteType } from "./types/favorite.type.ts";
+import { FavoriteType } from "@tests/idea/types/favorite.type.ts";
 
 type Params = {
   id: number;

@@ -1,10 +1,10 @@
 import http from "k6/http";
 
-import { richRequestWithToken } from "./scenario.utils.ts";
+import { richRequestWithToken } from "@src/utils/scenario.utils.ts";
 
-import { IdeaType } from "./types/idea.type.ts";
+import { IdeaType } from "@tests/idea/types/idea.type.ts";
 
-const imageFile = open("./assets/logo.png", "b");
+const imageFile = open("@tests/idea/assets/logo.png", "b");
 
 type Params = {
   title: string;
