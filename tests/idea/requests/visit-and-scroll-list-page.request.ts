@@ -1,6 +1,6 @@
 import { sleep } from "k6";
 
-import { getIdeasRequest } from "./requests/get-ideas.request.ts";
+import { getIdeasRequest } from "/tests/idea/requests/get-ideas.request.ts";
 
 export function visitAndScrollListPageRequest(): {
   randomId: number;

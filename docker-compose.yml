@@ -55,7 +55,7 @@ services:
       - K6_INFLUXDB_INSECURE=true
       - K6_INFLUXDB_TOKEN=SuperSecretToken456!
     volumes:
-      - ./tests:/home/k6user/tests
+      - /tests/idea/tests:/home/k6user/tests
     working_dir: /home/k6user
     command: run tests/idea/test.ts -o xk6-influxdb
 

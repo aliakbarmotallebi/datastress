@@ -1,7 +1,7 @@
 import { q } from "/src/utils/request.utils.ts";
 import { richRequest } from "/src/utils/scenario.utils.ts";
 
-import { IdeaType } from "./types/idea.type.ts";
+import { IdeaType } from "/tests/idea/types/idea.type.ts";
 
 type Params = {
   lastId?: number;

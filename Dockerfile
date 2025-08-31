@@ -11,4 +11,8 @@ COPY --from=builder /tmp/k6 /usr/bin/k6
 
 USER k6user
 WORKDIR /home/k6user
+
+
+RUN mkdir -p /home/k6user/tests && ln -s /home/k6user/tests /tests
+
 ENTRYPOINT ["k6"]

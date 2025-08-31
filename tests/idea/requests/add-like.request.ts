@@ -1,6 +1,6 @@
 import { richRequestWithToken } from "/src/utils/scenario.utils.ts";
 
-import { LikeType } from "./types/like.type.ts";
+import { LikeType } from "/tests/idea/types/like.type.ts";
 
 type Params = {
   id: number;
