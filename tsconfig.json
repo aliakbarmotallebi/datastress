@@ -13,8 +13,8 @@
     "resolveJsonModule": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"],
-      "@tests/*": ["tests/*"]
+      "/src/*": ["./src/*"],
+      "/tests/*": ["./tests/*"]
     },
     "types": ["k6", "node"]
   },
