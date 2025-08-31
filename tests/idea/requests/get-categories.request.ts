@@ -1,6 +1,6 @@
-import { richRequest } from "/@src/utils/scenario.utils.ts";
+import { richRequest } from "./scenario.utils.ts";
 
-import { CategoryType } from "@tests/idea/types/category.type.ts";
+import { CategoryType } from "./types/category.type.ts";
 
 export function getCategoriesRequest(): { categoryId: number } {
   const { body } = richRequest<{ data: CategoryType[] }>(

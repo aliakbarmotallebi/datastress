@@ -9,9 +9,6 @@
     "strict": true,
     "skipLibCheck": true,
     "allowImportingTsExtensions": true,
-    "baseUrl": "./tests/idea",
-    "paths": {
-      "@tests/*": ["./*"]
-    }
+    "baseUrl": "./tests/idea"
   }
 }

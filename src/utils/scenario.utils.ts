@@ -1,10 +1,10 @@
 // import { check } from "k6";
 import http from "k6/http";
 
-import { getCurrentRecord } from "@tests/idea/data.ts";
+import { getCurrentRecord } from "./data.ts";
 
-import { BASE_URL } from "@tests/idea/shared/configs.ts";
-// import { errorHandler } from "@tests/idea/shared/error-handler.ts";
+import { BASE_URL } from "./shared/configs.ts";
+// import { errorHandler } from "./shared/error-handler.ts";
 
 export function richRequest<TBody = unknown>(
   ...args: Parameters<typeof http.request>
