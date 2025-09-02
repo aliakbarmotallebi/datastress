@@ -1,9 +1,9 @@
 import csv from "k6/experimental/csv";
 import { open } from "k6/experimental/fs";
 
-import { RecordType } from "@tests/idea/types/record.type.ts";
+import { RecordType } from "./types/record.type.ts";
 
-const file = await open("@tests/idea/data.csv");
+const file = await open("./data.csv");
 const data = await csv.parse(file, {
   delimiter: ",",
   asObjects: true,
