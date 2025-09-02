@@ -5,7 +5,7 @@ services:
     ports:
       - "8086:8086"
     volumes:
-      - influxdb_data:/var/lib/influxdb
+      - influxdb_data:/var/lib/influxdb2
     environment:
       - DOCKER_INFLUXDB_INIT_MODE=setup
       - DOCKER_INFLUXDB_INIT_USERNAME=admin
@@ -47,6 +47,8 @@ services:
     container_name: k6-runner
     networks:
       - app_net
+    depends_on:
+      - influxdb
     environment:
       - K6_OUT=xk6-influxdb=http://influxdb:8086
       - K6_INFLUXDB_ORGANIZATION=main-org
@@ -55,6 +57,7 @@ services:
       - K6_INFLUXDB_TOKEN=SuperSecretToken456!
     volumes:
       - ./tests:/home/k6user/tests  
+      - ./src:/home/k6user/src
     working_dir: /home/k6user
     command: run tests/idea/test.ts -o xk6-influxdb
 

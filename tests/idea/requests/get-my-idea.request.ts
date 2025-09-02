@@ -1,11 +1,11 @@
-import { q } from "@src/utils/request.utils.ts";
-import { richRequest } from "@src/utils/scenario.utils.ts";
+import { q } from "../../../src/utils/request.utils.ts";
+import { richRequest } from "../../../src/utils/scenario.utils.ts";
 
-import { addViewRequest } from "@tests/idea/requests/add-view.request.ts";
-import { getFavoriteRequest } from "@tests/idea/requests/get-favorite.request.ts";
-import { getLikeRequest } from "@tests/idea/requests/get-like.request.ts";
+import { addViewRequest } from "./add-view.request.ts";
+import { getFavoriteRequest } from "./get-favorite.request.ts";
+import { getLikeRequest } from "./get-like.request.ts";
 
-import { IdeaType } from "@tests/idea/types/idea.type.ts";
+import { IdeaType } from "../types/idea.type.ts";
 
 type Params = {
   id: number;

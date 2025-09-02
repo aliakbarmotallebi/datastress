@@ -1,6 +1,6 @@
-import { addViewRequest } from "@tests/idea/requests/add-view.request.ts";
-import { getFavoriteRequest } from "@tests/idea/requests/get-favorite.request.ts";
-import { getLikeRequest } from "@tests/idea/requests/get-like.request.ts";
+import { addViewRequest } from "./add-view.request.ts";
+import { getFavoriteRequest } from "./get-favorite.request.ts";
+import { getLikeRequest } from "./get-like.request.ts";
 
 type Params = {
   id: number;
