@@ -4,7 +4,7 @@ import { visitListPageScenario } from "./scenarios/visit-list-page.scenario.ts";
 import { visitDetailPageScenario } from "./scenarios/visit-detail-page.scenario.ts";
 import { exploreDetailPageScenario } from "./scenarios/explore-detail-page.scenario.ts";
 import { commentScenario } from "./scenarios/comment.scenario.ts";
-import { addAndEditIdeaScenario } from "./scenarios/add-and-edit-idea.scenario.ts";
+// import { addAndEditIdeaScenario } from "./scenarios/add-and-edit-idea.scenario.ts";
 
 export const options: Options = {
   // vus: 10,

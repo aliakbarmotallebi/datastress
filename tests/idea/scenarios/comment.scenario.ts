@@ -22,7 +22,7 @@ export function commentScenario(): void {
   sleep(1);
 
   const { id: replyId } = addCommentRequest({
-    node_id: randomId, 
+    node_id: randomId,
     reply_id: commentId,
     text: "متن پاسخ به کامنت",
   });
